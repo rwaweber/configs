@@ -44,4 +44,5 @@ else
     export PS1="${GOLDENROD}[${RESET}${GREEN} \W ${RESET}::${CYAN} \u ${RESET}${GOLDENROD}]${RESET}\n${RED}# ${RESET}"
 fi
 
-GIT_PROMPT_ONLY_IN_REPO=1 source ~/.bash-git-prompt/gitprompt.sh
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
