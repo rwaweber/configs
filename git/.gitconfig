@@ -1,0 +1,22 @@
+# This is Git's per-user configuration file.
+[user]
+name = rwaweber
+email = rwaweber@gmail.com
+
+[grep]
+    linenumber = true
+[http]
+	cookiefile = $HOME/.gitcookies
+
+[core]
+    editor = vim
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.gitignore
+
+[alias]
+	change = codereview change
+	gofmt = codereview gofmt
+	mail = codereview mail
+	pending = codereview pending
+	submit = codereview submit
+	sync = codereview sync
