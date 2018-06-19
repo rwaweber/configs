@@ -31,12 +31,11 @@ bindsym $mod+XF86AudioMute exec pamixer -u
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec terminator
 # lock screen using cool blurred lock
 bindsym $mod+ctrl+l exec slock
 
-# start rofi
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec dmenu_run
 
 # change focus
 bindsym $mod+j focus left
@@ -50,6 +49,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+bindsym $mod+Shift+q kill
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down

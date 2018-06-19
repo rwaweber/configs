@@ -41,9 +41,9 @@ bind '"\e[B": history-search-forward'
 PROMPT_COMMAND='PS1X=$(perl -pl -e "s|^${HOME}|~|;s|([^/])[^/]*/|$""1/|g" <<<${PWD})'
 
 if [[ ${USER} != "root" ]]; then
-    export PS1="${GOLDENROD}[${RESET}${GREEN} \${PS1X} ${RESET}::${CYAN} \u ${RESET}${GOLDENROD}]${RESET}\n${GREEN}$ ${RESET}"
-else 
-    export PS1="${GOLDENROD}[${RESET}${GREEN} \${PS1X} ${RESET}::${CYAN} \u ${RESET}${GOLDENROD}]${RESET}\n${RED}# ${RESET}"
+    export PS1="${GOLDENROD}[${RESET}${GREEN} \${PS1X}${RESET} ${PINK}\u${RESET}${PURPLE}@${RESET}${LBLUE}\h ${RESET}${GOLDENROD}]${RESET}\n${GREEN}$ ${RESET}"
+else
+    export PS1="${GOLDENROD}[${RESET}${GREEN} \${PS1X}${RESET} ${RED}\u${RESET}${PURPLE}@${RESET}${LBLUE}\h ${RESET}${GOLDENROD}]${RESET}\n${RED}# ${RESET}"
 fi
 
 GIT_PROMPT_ONLY_IN_REPO=1
