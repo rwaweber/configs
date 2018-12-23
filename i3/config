@@ -21,19 +21,19 @@ client.background        #1f1f1f
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 #
-# # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pamixer -i 5
-bindsym XF86AudioLowerVolume exec pamixer -d 5
-bindsym XF86AudioMute exec pamixer -t
-bindsym $mod+XF86AudioMute exec pamixer -u
+# # Pulse Audio controls through alsa utilities
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%-
+bindsym XF86AudioMute exec amixer -D pulse sset Master mute
+bindsym $mod+XF86AudioMute exec amixer -D pulse sset Master mute toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec stterm -f "DejaVu Sans Mono for Powerline:size=12" -e tmux
 # lock screen using cool blurred lock
-bindsym $mod+ctrl+l exec slock
+bindsym $mod+ctrl+l exec i3lock -t -f -i ~/Pictures/lock.png
 
 bindsym $mod+d exec dmenu_run
 
@@ -160,3 +160,8 @@ bar {
     urgent_workspace #d33682 #d33682 #fdf6e3
   }
 }
+
+# set background
+exec --no-startup-id feh --bg-scale ~/Pictures/background.png
+# start network manager applet
+exec --no-startup-id nm-applet
