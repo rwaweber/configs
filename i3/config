@@ -24,8 +24,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 # # Pulse Audio controls through alsa utilities
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%-
-bindsym XF86AudioMute exec amixer -D pulse sset Master mute
-bindsym $mod+XF86AudioMute exec amixer -D pulse sset Master mute toggle
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -165,3 +164,7 @@ bar {
 exec --no-startup-id feh --bg-scale ~/Pictures/background.png
 # start network manager applet
 exec --no-startup-id nm-applet
+# set key configuration
+exec --no-startup-id xmodmap ~/dotfiles/Xsettings/.xmodmap
+# save your eyes
+exec --no-startup-id redshift
