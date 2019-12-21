@@ -30,7 +30,8 @@ bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec stterm -f "DejaVu Sans Mono for Powerline:size=12" -e tmux
+#bindsym $mod+Return exec stterm -f "DejaVu Sans Mono for Powerline:size=12" -e tmux
+bindsym $mod+Return exec terminator -e tmux
 # lock screen using cool blurred lock
 bindsym $mod+ctrl+l exec i3lock -t -f -i ~/Pictures/lock.png
 
