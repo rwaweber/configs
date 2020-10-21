@@ -33,7 +33,7 @@ floating_modifier $mod
 #bindsym $mod+Return exec stterm -f "DejaVu Sans Mono for Powerline:size=12" -e tmux
 bindsym $mod+Return exec terminator -e tmux
 # lock screen using cool blurred lock
-bindsym $mod+ctrl+l exec i3lock -t -f -i ~/Pictures/lock.png
+bindsym $mod+ctrl+l exec i3lock -c 696969
 
 bindsym $mod+d exec dmenu_run
 
@@ -120,6 +120,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+M exec "i3-nagbar -t warning -m 'You pressed the multi-head shortcut. Do you want to enable the Desktop monitor configuration?' -b 'Yes, change monitor' 'multi_head_desktop.sh'"
+bindsym $mod+Shift+S exec "i3-nagbar -t warning -m 'You pressed the single-head shortcut. Do you want to enable the laptop-only monitor configuration?' -b 'Yes, change monitor' 'single_head_desktop.sh'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -165,7 +167,9 @@ bar {
 exec --no-startup-id feh --bg-scale ~/Pictures/background.png
 # start network manager applet
 exec --no-startup-id nm-applet
-# set key configuration
+# set caps lock settings
 exec --no-startup-id xmodmap ~/dotfiles/Xsettings/.xmodmap
 # save your eyes
 exec --no-startup-id redshift
+# set key autorepeat settings
+exec --no-startup-id xset r rate 220 40
