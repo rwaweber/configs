@@ -56,4 +56,6 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PATH="/usr/local/sbin:$PATH"
 
+[ -s "/home/demos/.jabba/jabba.sh" ] && source "/home/demos/.jabba/jabba.sh"
+
 export PATH="$HOME/.cargo/bin:$PATH"
