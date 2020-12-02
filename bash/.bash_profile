@@ -30,7 +30,7 @@ if [[ $MACHINE == "Linux" ]]; then
 elif [[ $MACHINE == "Darwin" ]]; then
     alias ls="ls -G"
     if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-      . "$(brew --prefix)/etc/bash_completion"
+      source "$(brew --prefix)/etc/bash_completion"
     fi
 fi
 
@@ -57,12 +57,25 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PATH="/usr/local/sbin:$PATH"
 
 # If available, source jabba; java version manager
-[ -s "/home/demos/.jabba/jabba.sh" ] && source "/home/demos/.jabba/jabba.sh"
+if [ -s "$HOME/.jabba/jabba.sh" ]; then
+    source "$HOME/.jabba/jabba.sh"
+fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
 eval "$(keychain --agents ssh --eval id_rsa)"
 
+
+##
+# Python configurations:
+#
+# First setup pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
 
 # Find python site packages
 function python_paths {
