@@ -56,6 +56,19 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PATH="/usr/local/sbin:$PATH"
 
+# If available, source jabba; java version manager
 [ -s "/home/demos/.jabba/jabba.sh" ] && source "/home/demos/.jabba/jabba.sh"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+eval "$(keychain --agents ssh --eval id_rsa)"
+
+
+# Find python site packages
+function python_paths {
+    echo "Python3 found here:"
+    command -v python3
+    echo ""
+    echo "Possible site-packages directories here:"
+    python3 -c 'import sys; print("\n".join(sys.path))'
+}
