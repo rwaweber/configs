@@ -20,3 +20,5 @@ email = rwaweber@gmail.com
 	pending = codereview pending
 	submit = codereview submit
 	sync = codereview sync
+[init]
+	defaultBranch = main
