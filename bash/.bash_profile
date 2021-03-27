@@ -78,7 +78,7 @@ GIT_PROMPT_ONLY_IN_REPO=1
 [[ -s "$HOME/.ssh/id_ed25519" ]] && eval "$(keychain --agents ssh --eval id_ed25519)"
 
 # Setup keychain(https://www.funtoo.org/Keychain) for id_rsa
-[[ -s "$HOME/.ssh/id_rsa" ]]; && eval "$(keychain --agents ssh --eval id_rsa)"
+[[ -s "$HOME/.ssh/id_rsa" ]] && eval "$(keychain --agents ssh --eval id_rsa)"
 
 # Setup brew-specific settings
 if [ -s "/opt/homebrew/bin/brew" ]; then
