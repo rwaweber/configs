@@ -55,6 +55,15 @@ shopt -s histappend
 # "If file  exists, do X" blocks
 ##
 
+# Setup brew-specific settings
+if [ -s "/opt/homebrew/bin/brew" ]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+    if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+      source "$(brew --prefix)/etc/bash_completion"
+    fi
+fi
+
 # load git prompt if it exists
 GIT_PROMPT_ONLY_IN_REPO=1
 [[ -s "$HOME/.bash-git-prompt/gitprompt.sh" ]] && source "$HOME/.bash-git-prompt/gitprompt.sh"
@@ -79,15 +88,6 @@ GIT_PROMPT_ONLY_IN_REPO=1
 
 # Setup keychain(https://www.funtoo.org/Keychain) for id_rsa
 [[ -s "$HOME/.ssh/id_rsa" ]] && eval "$(keychain --agents ssh --eval id_rsa)"
-
-# Setup brew-specific settings
-if [ -s "/opt/homebrew/bin/brew" ]; then
-    export PATH="/opt/homebrew/bin:$PATH"
-    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-    if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-      source "$(brew --prefix)/etc/bash_completion"
-    fi
-fi
 
 ##
 # Python configurations:
