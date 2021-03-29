@@ -80,8 +80,10 @@ GIT_PROMPT_ONLY_IN_REPO=1
 # If available, source jabba; java version manager
 [[ -s "$HOME/.jabba/jabba.sh" ]] && source "$HOME/.jabba/jabba.sh"
 
-# source settings from interactive shells into the login shell
-[[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+# If a login shell, also pull in bashrc vars. Common behavior on MacOS.
+if $(shopt -q login_shell); then
+    [[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+fi
 
 # Setup keychain(https://www.funtoo.org/Keychain) for id_ed25519
 [[ -s "$HOME/.ssh/id_ed25519" ]] && eval "$(keychain --agents ssh --eval id_ed25519)"
