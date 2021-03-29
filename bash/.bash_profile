@@ -82,7 +82,9 @@ GIT_PROMPT_ONLY_IN_REPO=1
 
 # If a login shell, also pull in bashrc vars. Common behavior on MacOS.
 if $(shopt -q login_shell); then
-    [[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+    if [[ $MACHINE == "Darwin" ]]; then
+        [[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+    fi
 fi
 
 # Setup keychain(https://www.funtoo.org/Keychain) for id_ed25519
