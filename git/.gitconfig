@@ -5,6 +5,7 @@ email = rwaweber@gmail.com
 
 [grep]
     linenumber = true
+
 [http]
 	cookiefile = $HOME/.gitcookies
 
@@ -20,5 +21,9 @@ email = rwaweber@gmail.com
 	pending = codereview pending
 	submit = codereview submit
 	sync = codereview sync
+
 [init]
 	defaultBranch = main
+
+[pull]
+    rebase = true
