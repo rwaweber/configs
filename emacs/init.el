@@ -1,28 +1,40 @@
-(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+;;; Load other files
 
-;; The value is in 1/10pt, so 100 will give you 10pt
-(set-face-attribute 'default nil :height 220)
-(tool-bar-mode -1)
+;; Manage packages
+(load-file (concat user-emacs-directory "/packages.el"))
+
+;; Source PATH from system
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+;; Manage appearance-specific settings
+(load-file (concat user-emacs-directory "/appearance.el"))
+
+;; Setup event triggers for emacs
+(load-file (concat user-emacs-directory "/hooks.el"))
+
+;; Create local, untracked custom-settings file to keep init.el clean
+(setq custom-file (concat user-emacs-directory "/custom.el"))
+
+;; Parentheses matching
 (show-paren-mode 1)
 
-;; Package repositories
-(require 'package)
-(setq package-archives
-      '(("gnu" . "https://elpa.gnu.org/packages/")
-        ("melpa" . "https://melpa.org/packages/")))
+;; Disable backups
+(setq backup-inhibited t)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
-;; Refresh package lists
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; Packages to install
-(package-initialize)
-(setq package-list
-      '(evil))
-
-;; install missing packages
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
-
+;; Enable evil mode
 (require 'evil)
+(require 'evil-surround)
+
+(evil-mode 1)
+(global-evil-surround-mode 1)
+
+(require 'doom-modeline)
+(doom-modeline-mode 1)
+
+(require 'helm)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
