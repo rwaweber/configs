@@ -12,4 +12,8 @@
 
 ;; Set default font size pretty large, defer more specific
 ;; font settings/faces to hooks.el
-(set-face-attribute 'default (selected-frame) :height 220)
+(set-face-attribute 'default (selected-frame) :height 160)
+
+;; The limit of the window width.
+;; If `window-width' is smaller than the limit, some information won't be displayed.
+(setq doom-modeline-hud t)

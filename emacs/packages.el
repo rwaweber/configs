@@ -11,13 +11,26 @@
 ;; Packages to install
 (package-initialize)
 (setq packages-to-install
-    '(doom-modeline
-      evil
-      evil-surround
-      evil-cleverparens
-      exec-path-from-shell
-      helm
-      lsp-mode))
+      '(cider
+	clojure-mode
+	company
+	doom-modeline
+	evil
+	evil-surround
+	evil-cleverparens
+	exec-path-from-shell
+	flycheck
+	go-mode
+	helm
+	lsp-mode
+	lsp-pyright
+	lsp-treemacs
+	lsp-ui
+	magit
+	org
+	treemacs
+	treemacs-evil))
+;; Install clojure-lsp manually
 
 ;; Install missing packages
 (dolist (package packages-to-install)

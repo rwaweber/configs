@@ -36,6 +36,7 @@ fi
 
 # Go settings
 export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
 # enable history search with arrow-keys
 bind '"\e[A": history-search-backward'
