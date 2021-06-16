@@ -15,6 +15,7 @@
 	clojure-mode
 	company
 	doom-modeline
+	eshell-git-prompt
 	evil
 	evil-surround
 	evil-cleverparens
