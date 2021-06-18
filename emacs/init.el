@@ -1,5 +1,9 @@
 ;;; Load other files
 
+;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
+(if (eq system-type 'gnu/linux)
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+
 ;; Manage packages
 (load-file (concat user-emacs-directory "/packages.el"))
 
