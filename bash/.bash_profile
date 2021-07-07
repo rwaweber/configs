@@ -18,7 +18,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 export PS1="${GOLDENROD}[${RESET}${GREEN} \${PS1X}${RESET} ${PINK}\\u${RESET}${PURPLE}@${RESET}${LBLUE}\\h ${RESET}${GOLDENROD}]${RESET}\\n${GREEN}$ ${RESET}"
 
-export PATH="$HOME/bin:/usr/local/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 MACHINE="$(uname -s)"
 
@@ -36,6 +36,7 @@ fi
 
 # Go settings
 export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 
 # enable history search with arrow-keys
 bind '"\e[A": history-search-backward'
